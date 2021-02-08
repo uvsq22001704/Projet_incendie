@@ -7,6 +7,14 @@
 # Ibouroi MOHAMMED
 # Hyacinthe MORASSE
 # https://github.com/uvsq22001704/Projet_incendie
+######################
+
+######################
+# Import des librairies
+
+import tkinter as tk
+
+######################
 #######################
 
 #test
