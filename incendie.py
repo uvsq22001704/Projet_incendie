@@ -46,7 +46,7 @@ PARCEL_WIDTH = WIDTH / 40
 ######################
 # Programme principal
 
-canvas = tk.Canvas(root, bg="black", width = WIDTH, height = HEIGHT)
+canvas = tk.Canvas(root, width = WIDTH, height = HEIGHT, bg = "black")
 button1 = tk.Button(root, text = "B1")
 button2 = tk.Button(root, text = "B2")
 button3 = tk.Button(root, text = "B3")
