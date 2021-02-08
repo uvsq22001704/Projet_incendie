@@ -34,6 +34,7 @@ DUREE_CENDRE =
 ######################
 # Défintion des variables globales
 
+COMPTEUR = 0
 
 ######################
 
