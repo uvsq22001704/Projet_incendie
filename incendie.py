@@ -23,7 +23,8 @@ root = tk.Tk ()
 
 HEIGHT = 800
 WIDTH = 1600
-
+PARCEL_HEIGHT = HEIGHT / 20
+PARCEL_WIDTH = WIDTH / 40
 
 ######################
 
