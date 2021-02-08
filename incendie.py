@@ -47,12 +47,12 @@ PARCEL_WIDTH = WIDTH / 40
 # Programme principal
 
 canvas = tk.Canvas(root, width = WIDTH, height = HEIGHT, bg = "black")
-button1 = tk.Button(root, text = "B1")
-button2 = tk.Button(root, text = "B2")
-button3 = tk.Button(root, text = "B3")
-button4 = tk.Button(root, text = "B4")
-button5 = tk.Button(root, text = "B5")
-button6 = tk.Button(root, text = "B6")
+button1 = tk.Button(root, text = "TERRAIN ALÉATOIRE")
+button2 = tk.Button(root, text = "SAUVEGARDE DU TERRAIN")
+button3 = tk.Button(root, text = "CHARGER UN TERRAIN")
+button4 = tk.Button(root, text = "ÉTAPE DE SIMULATION")
+button5 = tk.Button(root, text = "DÉMARRER LA SIMULATION")
+button6 = tk.Button(root, text = "ARRÊTER LA SIMULATION")
 
 
 canvas.grid(column=0, row=0, columnspan=3)
