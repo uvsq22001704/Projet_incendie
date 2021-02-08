@@ -16,12 +16,13 @@ import tkinter as tk
 
 ######################
 
-<<<<<<< HEAD
-#test
-=======
 
 ######################
 # Définition des constantes
+root = tk.Tk ()
+
+HEIGHT = 800
+WIDTH = 1600
 
 
 ######################
@@ -44,6 +45,15 @@ import tkinter as tk
 ######################
 # Programme principal
 
+canvas = tk.Canvas(root, width = WIDTH, height = HEIGHT)
+button1 = tk.button(text = "B1")
+button2 = tk.button(text = "B2")
+button3 = tk.button(text = "B3")
+button4 = tk.button(text = "B4")
+button5 = tk.button(text = "B5")
+button6 =tk.button(text = "B6")
+
+
 canvas.grid(column=0, row=0, columnspan=3)
 button1.grid(column=0, row=1)
 button2.grid(column=1, row=1)
@@ -53,4 +63,10 @@ button5.grid(column=1, row=2)
 button6.grid(column=2, row=2)
 
 ######################
->>>>>>> 0871b87c99553bfc09440e2770c025baf19d45e9
+
+
+
+
+
+
+root.mainloop ()
