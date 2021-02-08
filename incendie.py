@@ -45,13 +45,13 @@ WIDTH = 1600
 ######################
 # Programme principal
 
-canvas = tk.Canvas(root, width = WIDTH, height = HEIGHT)
-button1 = tk.button(text = "B1")
-button2 = tk.button(text = "B2")
-button3 = tk.button(text = "B3")
-button4 = tk.button(text = "B4")
-button5 = tk.button(text = "B5")
-button6 =tk.button(text = "B6")
+canvas = tk.Canvas(root, width = WIDTH, height = HEIGHT, bg = "black")
+button1 = tk.Button(root, text = "B1")
+button2 = tk.Button(root, text = "B2")
+button3 = tk.Button(root, text = "B3")
+button4 = tk.Button(root, text = "B4")
+button5 = tk.Button(root, text = "B5")
+button6 =tk.Button(root, text = "B6")
 
 
 canvas.grid(column=0, row=0, columnspan=3)
@@ -69,4 +69,4 @@ button6.grid(column=2, row=2)
 
 
 
-root.mainloop ()
+root.mainloop()
