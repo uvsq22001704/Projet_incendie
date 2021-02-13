@@ -31,7 +31,7 @@ FIRE_DURATION = 0
 ASHES_DURATION = 0
 
 ######################
-
+#j'essaye de faire un commit
 
 ######################
 # Défintion des variables globales
