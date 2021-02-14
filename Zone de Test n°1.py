@@ -111,6 +111,19 @@ def START_FIRE(event):
 
     #print_itemiser()
 
+def SIM_STEP():
+    #for i in range(2, 38):
+    #    for j in range(2, 18):
+    #        print (itemiser[i][j])
+    #        if itemiser[i][j] == "green yellow" and ( itemiser[i-1][j] == "purple" or itemiser[i+1][j] == "purple" or itemiser[i][j+1] == "purple" or itemiser[i][j-1] == "purple"):
+    #            itemiser[i][j] = "purple"
+    #refresh()
+    pass
+
+
+def AUTO_SIM(state):
+    pass
+
 ######################
 
 
@@ -124,9 +137,9 @@ canvas = tk.Canvas(root, width = WIDTH, height = HEIGHT, bg = "black")
 button1 = tk.Button(root, text = "TERRAIN ALÉATOIRE", command=terrain_aléatoire)
 button2 = tk.Button(root, text = "SAUVEGARDE DU TERRAIN", command=sauvegarde)
 button3 = tk.Button(root, text = "CHARGER UN TERRAIN")
-button4 = tk.Button(root, text = "ÉTAPE DE SIMULATION")
-button5 = tk.Button(root, text = "DÉMARRER LA SIMULATION")
-button6 = tk.Button(root, text = "ARRÊTER LA SIMULATION")
+button4 = tk.Button(root, text = "ÉTAPE DE SIMULATION", command = lambda : SIM_STEP())
+button5 = tk.Button(root, text = "DÉMARRER LA SIMULATION", command = lambda : AUTO_SIM("ON"))
+button6 = tk.Button(root, text = "ARRÊTER LA SIMULATION", command = lambda : AUTO_SIM("OFF"))
 
 
 canvas.grid(column=0, row=0, columnspan=3)
