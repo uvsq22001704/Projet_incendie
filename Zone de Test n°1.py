@@ -29,7 +29,7 @@ PARCEL_WIDTH = WIDTH / 40
 DUREE_FEU = 0
 DUREE_CENDRE = 0
 color = ["dodger blue", "green yellow", "green4"]
-itemiser = []
+itemiser = [] #liste 2D dans laquelle les couleurs sont rangées
 
 ######################
 
@@ -73,9 +73,12 @@ def refresh():
 
 
 def START_FIRE(event):
+    """ donne l'état feu à la case clickée """
+        #réccupere les coordonées du click
     Coord_x = event.x
-    Coord_y = event.y
-    ### donne l'état feu à la case clickée ###
+    Coord_y = event.y 
+
+        #définie les bordures du x_border_1, x_border_2, y_border_1 & y_border_2 
     x_border_1= (Coord_x // 40)*40
     y_border_1 = (Coord_y // 40)*40
     if x_border_1>= Coord_x:
@@ -90,10 +93,12 @@ def START_FIRE(event):
             y_border_2 = y_border_1 - 40
         else:
             y_border_2 = y_border_1 + 40
+
+        #place le feu dans le canvenas et la liste 2D
     if itemiser [Coord_y // 40][Coord_x // 40] != "dodger blue":
         canvas.create_rectangle(x_border_1, y_border_1, x_border_2, y_border_2, fill = "purple")
         itemiser [Coord_y // 40][Coord_x // 40] = "purple"
-    refresh()
+
     print(itemiser)
 
 ######################
