@@ -80,11 +80,11 @@ def START_FIRE(event):
     
         
         #définie les bordures du x_border_1, x_border_2, y_border_1 & y_border_2 
-    if (Coord_x < 800 and Coord_y < 1600):
+    if (Coord_x < 1600 and Coord_y < 800):
 
         x_border_1= (Coord_x // 40)*40
         y_border_1 = (Coord_y // 40)*40
-        
+
         if x_border_1>= Coord_x:
             x_border_2 = x_border_1- 40
             if y_border_1 >= Coord_y:
