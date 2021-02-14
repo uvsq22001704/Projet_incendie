@@ -56,7 +56,7 @@ def terrain_aléatoire():
             col = rd.choice(color)
             itemiser[j].append(col)
             canvas.create_rectangle((i * PARCEL_WIDTH), (j * PARCEL_HEIGHT), ((i+1) * PARCEL_WIDTH, (j+1) * PARCEL_HEIGHT), fill = col)
-    print (itemiser)
+    print_itemiser()
     
     print (itemiser[5][1])
 
@@ -70,6 +70,12 @@ def refresh():
     for i in range(40):
         for j in range(20):
             canvas.create_rectangle((i * PARCEL_WIDTH), (j * PARCEL_HEIGHT), ((i+1) * PARCEL_WIDTH, (j+1) * PARCEL_HEIGHT), fill = itemiser[j][i])
+
+
+def print_itemiser():
+    for i in range(20):
+        print ( "line", i, itemiser[i])
+        print (" ")
 
 
 def START_FIRE(event):
@@ -103,7 +109,7 @@ def START_FIRE(event):
         canvas.create_rectangle(x_border_1, y_border_1, x_border_2, y_border_2, fill = "purple")
         itemiser [Coord_y // 40][Coord_x // 40] = "purple"
 
-    print(itemiser)
+    print_itemiser()
 
 ######################
 
