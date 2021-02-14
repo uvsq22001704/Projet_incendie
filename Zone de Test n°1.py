@@ -109,7 +109,7 @@ def START_FIRE(event):
         canvas.create_rectangle(x_border_1, y_border_1, x_border_2, y_border_2, fill = "purple")
         itemiser [Coord_y // 40][Coord_x // 40] = "purple"
 
-    print_itemiser()
+    #print_itemiser()
 
 ######################
 
