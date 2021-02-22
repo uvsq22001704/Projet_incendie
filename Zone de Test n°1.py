@@ -90,20 +90,10 @@ def START_FIRE(event):
 
         x_border_1= (Coord_x // 40)*40
         y_border_1 = (Coord_y // 40)*40
-
-        if x_border_1>= Coord_x:
-            x_border_2 = x_border_1- 40
-            if y_border_1 >= Coord_y:
-                y_border_2 = y_border_1 - 40
-            else:
-                y_border_2 = y_border_1 + 40
-        else:
-            x_border_2 = x_border_1+ 40
-            if y_border_1 >= Coord_y:
-                y_border_2 = y_border_1 - 40
-            else:
-                y_border_2 = y_border_1 + 40
-
+        y_border_2 = y_border_1 + 40
+        x_border_2 = x_border_1 + 40
+        
+      
         #place le feu dans le canvenas et la liste 2D
     if itemiser [Coord_y // 40][Coord_x // 40] != "dodger blue":
         canvas.create_rectangle(x_border_1, y_border_1, x_border_2, y_border_2, fill = "purple")
