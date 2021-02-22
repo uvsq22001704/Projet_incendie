@@ -78,28 +78,35 @@ def print_itemiser():
         print (" ")
 
 
-def START_FIRE(event):
-    """ donne l'état feu à la case clickée """
-        #réccupere les coordonées du click
-    Coord_x = event.x
-    Coord_y = event.y
-    
-        
-        #définie les bordures du x_border_1, x_border_2, y_border_1 & y_border_2 
+def Coord_Case(Coord_x, Coord_y):
+    '''définie les bordures du x_border_1, x_border_2, y_border_1 & y_border_2 '''
+
     if (Coord_x < 1600 and Coord_y < 800):
 
-        x_border_1= (Coord_x // 40)*40
-        y_border_1 = (Coord_y // 40)*40
-        y_border_2 = y_border_1 + 40
-        x_border_2 = x_border_1 + 40
+        x_1= ((Coord_x-40) // 40)*40
+        y_1 = (Coord_y // 40)*40
+        y_2 = y_1 + 40
+        x_2 = x_1 + 40
         
+        return x_1, y_1, x_2, y_2
       
-        #place le feu dans le canvenas et la liste 2D
-    if itemiser [Coord_y // 40][Coord_x // 40] != "dodger blue":
-        canvas.create_rectangle(x_border_1, y_border_1, x_border_2, y_border_2, fill = "purple")
-        itemiser [Coord_y // 40][Coord_x // 40] = "purple"
+def START_FIRE (event):
+    """ donne l'état feu à la case clickée """
 
-    #print_itemiser()
+    #réccupere les coordonées du click
+    x = event.x
+    y = event.y
+    x_border_1, y_border_1, x_border_2, y_border_2 = Coord_Case(x, y)
+
+    #print (x, y)
+    #print (itemiser [y_border_1 // 40][x_border_2 // 40])
+
+    #place le feu dans le canvenas et la liste 2D
+    if itemiser [y_border_1 // 40][x_border_2 // 40] != "dodger blue" and itemiser [y_border_1 // 40][x_border_2 // 40] != "purple":
+        canvas.create_rectangle(x_border_1 + 40, y_border_1, x_border_2 + 40, y_border_2, fill = "purple")
+        itemiser [y_border_1 // 40][x_border_1 // 40 + 1] = "purple"
+
+
 
 def SIM_STEP():
     #for i in range(2, 38):
