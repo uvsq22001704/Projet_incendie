@@ -1,11 +1,13 @@
 
 ########################
-# Auteurs:
-# Pierre Coucheney
-# Toto Lehéro
-# ...
-# Groupe de TD:
-# MPCI 5
+# Groupe 2 LDDMP
+# Arthur CHAUVEAU
+# Noémie KAUFMANN
+# Titouan BIGET
+# Diary ANDRIANARIVO
+# Mohammed IBOUROI
+# Hyacinthe MORASSE
+# https://github.com/uvsq22001704/Projet_incendie
 ########################
 
 ########################
@@ -98,15 +100,3 @@ canvas.grid(row=0)
 canvas.bind("<Button-1>", change_carre)
 # boucle principale
 racine.mainloop()
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
