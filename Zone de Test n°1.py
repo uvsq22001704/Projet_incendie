@@ -56,9 +56,8 @@ def terrain_aléatoire():
             col = rd.choice(color)
             itemiser[j].append(col)
             canvas.create_rectangle((i * PARCEL_WIDTH), (j * PARCEL_HEIGHT), ((i+1) * PARCEL_WIDTH, (j+1) * PARCEL_HEIGHT), fill = col)
-    print_itemiser()
-    
-    print (itemiser[5][1])
+    #print_itemiser()
+
 
 def sauvegarde():
     ### Sauvegarde du terrain ###

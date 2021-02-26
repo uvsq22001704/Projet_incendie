@@ -19,16 +19,13 @@ import random as rd
 ########################
 # Constantes
 
-COULEUR_FOND = "grey100"
-COULEUR_QUADR = "grey50"
-COULEUR_VIVANT = "yellow"
 LARGEUR = 1600
 HAUTEUR = 800
 # la longueur des carrés qui constituent le quadrillage
 COTE = 40
 NB_COL = LARGEUR // COTE
 NB_LINE = HAUTEUR // COTE
-COULEUR = ["dodger blue", "green yellow", "green4"]
+COULEUR = ["dodger blue", "yellow2", "green4"]
 
 ######################
 # Variables globales
@@ -57,12 +54,12 @@ def quadrillage():
     x0, x1 = 0, LARGEUR
     y = 0
     while y <= HAUTEUR:
-        canvas.create_line(x0, y, x1, y, fill=COULEUR_QUADR)
+        canvas.create_line(x0, y, x1, y, fill="grey")
         y += COTE
     y0, y1 = 0, LARGEUR
     x = 0
     while x <= LARGEUR:
-        canvas.create_line(x, y0, x, y1, fill=COULEUR_QUADR)
+        canvas.create_line(x, y0, x, y1, fill="grey")
         x += COTE
 
 
@@ -89,6 +86,11 @@ def Alum_feu(event):
         tableau [x_border_1 // 40 + 1] [y_border_1 // 40] = "firebrick3"
 
 
+def sauvegarde():
+    ### Sauvegarde du terrain ###
+    canvas.postscript(file="incendie.txt", colormode="color")
+
+
 def Coord_Case(Coord_x, Coord_y):
     '''définie les bordures du x_border_1, x_border_2, y_border_1 & y_border_2 '''
 
@@ -109,7 +111,7 @@ def Coord_Case(Coord_x, Coord_y):
 racine = tk.Tk()
 racine.title("Jeu de la vie")
 # création des widgets
-canvas = tk.Canvas(racine, bg=COULEUR_FOND, width=LARGEUR, height=HAUTEUR)
+canvas = tk.Canvas(racine, bg="white", width=LARGEUR, height=HAUTEUR)
 quadrillage()
 
 
