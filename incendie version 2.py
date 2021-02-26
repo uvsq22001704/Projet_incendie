@@ -22,10 +22,10 @@ import tkinter as tk
 COULEUR_FOND = "grey100"
 COULEUR_QUADR = "grey50"
 COULEUR_VIVANT = "yellow"
-LARGEUR = 600
-HAUTEUR = 400
+LARGEUR = 1600
+HAUTEUR = 800
 # la longueur des carrés qui constituent le quadrillage
-COTE = 100
+COTE = 40
 NB_COL = LARGEUR // COTE
 NB_LINE = HAUTEUR // COTE
 
@@ -94,9 +94,33 @@ racine.title("Jeu de la vie")
 canvas = tk.Canvas(racine, bg=COULEUR_FOND, width=LARGEUR, height=HAUTEUR)
 quadrillage()
 creer_tableau()
+
+button1 = tk.Button(racine, text = "TERRAIN ALÉATOIRE")
+button2 = tk.Button(racine, text = "SAUVEGARDE DU TERRAIN")
+button3 = tk.Button(racine, text = "CHARGER UN TERRAIN")
+button4 = tk.Button(racine, text = "ÉTAPE DE SIMULATION")
+button5 = tk.Button(racine, text = "DÉMARRER LA SIMULATION")
+button6 = tk.Button(racine, text = "ARRÊTER LA SIMULATION")
+
+
 # placement des widgets
-canvas.grid(row=0)
+canvas.grid(column=0, row=0, columnspan=3)
+button1.grid(column=0, row=1)
+button2.grid(column=1, row=1)
+button3.grid(column=2, row=1)
+button4.grid(column=0, row=2)
+button5.grid(column=1, row=2)
+button6.grid(column=2, row=2)
 # liaison des événements
 canvas.bind("<Button-1>", change_carre)
 # boucle principale
 racine.mainloop()
+
+
+canvas.grid(column=0, row=0, columnspan=3)
+button1.grid(column=0, row=1)
+button2.grid(column=1, row=1)
+button3.grid(column=2, row=1)
+button4.grid(column=0, row=2)
+button5.grid(column=1, row=2)
+button6.grid(column=2, row=2)
