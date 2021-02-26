@@ -98,15 +98,3 @@ canvas.grid(row=0)
 canvas.bind("<Button-1>", change_carre)
 # boucle principale
 racine.mainloop()
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
