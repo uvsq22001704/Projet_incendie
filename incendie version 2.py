@@ -72,20 +72,6 @@ def coord_to_lg(x, y):
     return x // COTE, y // COTE
 
 
-def change_carre(event):
-    """Change l'état du carré sur lequel on a cliqué"""
-    i, j = coord_to_lg(event.x, event.y)
-    if tableau[i][j] == -1:
-        x, y = i * COTE, j * COTE
-        carre = canvas.create_rectangle(x, y, x + COTE,
-                                        y + COTE, fill=COULEUR_VIVANT,
-                                        outline=COULEUR_QUADR)
-        tableau[i][j] = carre
-    else:
-        canvas.delete(tableau[i][j])
-        tableau[i][j] = -1
-
-
 def Alum_feu(event):
     """ donne l'état feu à la case clickée """
 
@@ -98,9 +84,9 @@ def Alum_feu(event):
     #print (tableau [y_border_1 // 40][x_border_2 // 40])
 
     #place le feu dans le canvenas et la liste 2D
-    if tableau [y_border_1 // 40][x_border_2 // 40] != "dodger blue" and tableau [y_border_1 // 40][x_border_2 // 40] != "firebrick3":
+    if tableau [x_border_2 // 40] [y_border_1 // 40]!= "dodger blue" and tableau[x_border_2 // 40] [y_border_1 // 40] != "firebrick3":
         canvas.create_rectangle(x_border_1 + 40, y_border_1, x_border_2 + 40, y_border_2, fill = "firebrick3")
-        tableau [y_border_1 // 40][x_border_1 // 40 + 1] = "firebrick3"
+        tableau [x_border_1 // 40 + 1] [y_border_1 // 40] = "firebrick3"
 
 
 def Coord_Case(Coord_x, Coord_y):
@@ -134,7 +120,6 @@ button4 = tk.Button(racine, text = "ÉTAPE DE SIMULATION")
 button5 = tk.Button(racine, text = "DÉMARRER LA SIMULATION")
 button6 = tk.Button(racine, text = "ARRÊTER LA SIMULATION")
 
-racine.bind("<Button-1>", Alum_feu)
 
 # placement des widgets
 canvas.grid(column=0, row=0, columnspan=3)
@@ -145,7 +130,7 @@ button4.grid(column=0, row=2)
 button5.grid(column=1, row=2)
 button6.grid(column=2, row=2)
 # liaison des événements
-canvas.bind("<Button-1>", change_carre)
+canvas.bind("<Button-1>", Alum_feu)
 # boucle principale
 racine.mainloop()
 
