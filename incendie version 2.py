@@ -15,6 +15,7 @@
 
 import tkinter as tk
 import random as rd
+import pickle as pk
 
 ########################
 # Constantes
@@ -85,10 +86,34 @@ def Alum_feu(event):
         canvas.create_rectangle(x_border_1 + 40, y_border_1, x_border_2 + 40, y_border_2, fill = "firebrick3")
         tableau [x_border_1 // 40 + 1] [y_border_1 // 40] = "firebrick3"
 
+def refresh():
+    '''### Construit la map à partir de tableau ###'''
+    global tableau
+    for i in range(20):
+        for j in range(40):
+            canvas.create_rectangle((j * COTE), (i * COTE), ((j+1) * COTE, (i+1) * COTE), fill = tableau[j][i])
+
+def print_tableau():
+    '''### print tableau dans le terminal column par coliumn ###'''
+    for i in range(40):
+        print ( "column", i, tableau[i])
+        print (" ")
 
 def sauvegarde():
-    ### Sauvegarde du terrain ###
-    canvas.postscript(file="incendie.txt", colormode="color")
+    ''' Sauvegarde du terrain avec pickle dans un .txt; ce fichier est enregistré dans le même fichier que le .py du code '''
+
+    global tableau
+    fichier_de_sauvegarde = open("sauvegarde_terrain.txt", "wb") #crée un fichier nommé "sauvergarde_terrain.txt"
+    pk.dump( tableau, fichier_de_sauvegarde) #écrit tableau dans le fichié
+
+def charger():
+    '''Récupère les données du fichier de sauvegarde et reconstruit le tableau et la map'''
+
+    global tableau
+    fichier_de_sauvegarde = open("sauvegarde_terrain.txt", 'rb') #cherche un fichier nommé "sauvergarde_terrain"
+    tableau = pk.load(fichier_de_sauvegarde) # récupere des données du .txt et les met dans tableau
+    #print_tableau()
+    refresh()
 
 
 def Coord_Case(Coord_x, Coord_y):
@@ -116,8 +141,8 @@ quadrillage()
 
 
 button1 = tk.Button(racine, text = "TERRAIN ALÉATOIRE", command = terrain_aléatoire)
-button2 = tk.Button(racine, text = "SAUVEGARDE DU TERRAIN")
-button3 = tk.Button(racine, text = "CHARGER UN TERRAIN")
+button2 = tk.Button(racine, text = "SAUVEGARDE DU TERRAIN", command = sauvegarde)
+button3 = tk.Button(racine, text = "CHARGER UN TERRAIN", command = charger)
 button4 = tk.Button(racine, text = "ÉTAPE DE SIMULATION")
 button5 = tk.Button(racine, text = "DÉMARRER LA SIMULATION")
 button6 = tk.Button(racine, text = "ARRÊTER LA SIMULATION")
