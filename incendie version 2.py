@@ -36,6 +36,7 @@ tableau = None
 ########################
 # fonctions
 
+
 def terrain_aléatoire():
     '''crée un terrain aléatoire et place l'état des cases dans un tableau'''
     global tableau
@@ -47,9 +48,10 @@ def terrain_aléatoire():
             tableau.append([])
             col = rd.choice(COULEUR)
             tableau[j].append(col)
-            canvas.create_rectangle((j * COTE), (i * COTE), ((j+1) * COTE, (i+1) * COTE), fill = col)
+            canvas.create_rectangle((j * COTE), (i * COTE), ((j+1) * COTE, (i+1) * COTE), fill=col)
     #print_tableau()
-    
+
+
 def quadrillage():
     """Affiche un quadrillage sur le canvas."""
     x0, x1 = 0, LARGEUR
@@ -82,36 +84,44 @@ def Alum_feu(event):
     #print (tableau [y_border_1 // 40][x_border_2 // 40])
 
     #place le feu dans le canvenas et la liste 2D
-    if tableau [x_border_2 // 40] [y_border_1 // 40]!= "dodger blue" and tableau[x_border_2 // 40] [y_border_1 // 40] != "firebrick3":
-        canvas.create_rectangle(x_border_1 + 40, y_border_1, x_border_2 + 40, y_border_2, fill = "firebrick3")
-        tableau [x_border_1 // 40 + 1] [y_border_1 // 40] = "firebrick3"
+    if tableau[x_border_2 // 40][y_border_1 // 40] != "dodger blue" and tableau[x_border_2 // 40][y_border_1 // 40] != "firebrick3":
+        canvas.create_rectangle(x_border_1 + 40, y_border_1, x_border_2 + 40,
+                                y_border_2, fill="firebrick3")
+        tableau[x_border_1 // 40 + 1][y_border_1 // 40] = "firebrick3"
+
 
 def refresh():
     '''### Construit la map à partir de tableau ###'''
     global tableau
     for i in range(20):
         for j in range(40):
-            canvas.create_rectangle((j * COTE), (i * COTE), ((j+1) * COTE, (i+1) * COTE), fill = tableau[j][i])
+            canvas.create_rectangle((j * COTE), (i * COTE),
+                                    ((j+1) * COTE, (i+1) * COTE),
+                                    fill=tableau[j][i])
+
 
 def print_tableau():
     '''### print tableau dans le terminal column par coliumn ###'''
     for i in range(40):
-        print ( "column", i, tableau[i])
-        print (" ")
+        print("column", i, tableau[i])
+        print(" ")
+
 
 def sauvegarde():
-    ''' Sauvegarde du terrain avec pickle dans un .txt; ce fichier est enregistré dans le même fichier que le .py du code '''
-
+    ''' Sauvegarde du terrain avec pickle dans un .txt; ce fichier
+     est enregistré dans le même fichier que le .py du code '''
     global tableau
-    fichier_de_sauvegarde = open("sauvegarde_terrain.txt", "wb") #crée un fichier nommé "sauvergarde_terrain.txt"
-    pk.dump( tableau, fichier_de_sauvegarde) #écrit tableau dans le fichié
+    fichier_de_sauvegarde = open("sauvegarde_terrain.txt", "wb")  #crée un fichier nommé "sauvergarde_terrain.txt"
+    pk.dump(tableau, fichier_de_sauvegarde)  #écrit tableau dans le fichié
+
 
 def charger():
-    '''Récupère les données du fichier de sauvegarde et reconstruit le tableau et la map'''
+    '''Récupère les données du fichier de sauvegarde et 
+    reconstruit le tableau et la map'''
 
     global tableau
-    fichier_de_sauvegarde = open("sauvegarde_terrain.txt", 'rb') #cherche un fichier nommé "sauvergarde_terrain"
-    tableau = pk.load(fichier_de_sauvegarde) # récupere des données du .txt et les met dans tableau
+    fichier_de_sauvegarde = open("sauvegarde_terrain.txt", 'rb')  #cherche un fichier nommé "sauvergarde_terrain"
+    tableau = pk.load(fichier_de_sauvegarde)  # récupere des données du .txt et les met dans tableau
     #print_tableau()
     refresh()
 
@@ -121,17 +131,17 @@ def Coord_Case(Coord_x, Coord_y):
 
     if (Coord_x < 1600 and Coord_y < 800):
 
-        x_1= ((Coord_x-40) // 40)*40
+        x_1 = ((Coord_x-40) // 40)*40
         y_1 = (Coord_y // 40)*40
         y_2 = y_1 + 40
         x_2 = x_1 + 40
-        
+
         return x_1, y_1, x_2, y_2
-     
 
 
 ########################
 # programme principal
+
 
 racine = tk.Tk()
 racine.title("Jeu de la vie")
@@ -140,12 +150,13 @@ canvas = tk.Canvas(racine, bg="white", width=LARGEUR, height=HAUTEUR)
 quadrillage()
 
 
-button1 = tk.Button(racine, text = "TERRAIN ALÉATOIRE", command = terrain_aléatoire)
-button2 = tk.Button(racine, text = "SAUVEGARDE DU TERRAIN", command = sauvegarde)
-button3 = tk.Button(racine, text = "CHARGER UN TERRAIN", command = charger)
-button4 = tk.Button(racine, text = "ÉTAPE DE SIMULATION")
-button5 = tk.Button(racine, text = "DÉMARRER LA SIMULATION")
-button6 = tk.Button(racine, text = "ARRÊTER LA SIMULATION")
+button1 = tk.Button(racine, text="TERRAIN ALÉATOIRE",
+                    command=terrain_aléatoire)
+button2 = tk.Button(racine, text="SAUVEGARDE DU TERRAIN", command=sauvegarde)
+button3 = tk.Button(racine, text="CHARGER UN TERRAIN", command=charger)
+button4 = tk.Button(racine, text="ÉTAPE DE SIMULATION")
+button5 = tk.Button(racine, text="DÉMARRER LA SIMULATION")
+button6 = tk.Button(racine, text="ARRÊTER LA SIMULATION")
 
 
 # placement des widgets
@@ -160,5 +171,3 @@ button6.grid(column=2, row=2)
 canvas.bind("<Button-1>", Alum_feu)
 # boucle principale
 racine.mainloop()
-
-
